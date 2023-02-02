@@ -1,2 +1,8 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import Task from '../components/Task.svelte';
+</script>
+
+<Task id="01" text="タスク1" />
+<Task id="02" text="タスク2" />
+<Task id="03" text="タスク3" />
+<Task id="04" text="タスク4" />
