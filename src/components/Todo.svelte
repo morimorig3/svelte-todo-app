@@ -24,7 +24,6 @@
 	label {
 		display: flex;
 		justify-content: space-between;
-		gap: 8px;
 		margin-bottom: 16px;
 		padding: 16px;
 		border: 1px solid rgba(149, 157, 165, 0.2);
@@ -37,6 +36,7 @@
 	div {
 		display: flex;
 		justify-content: space-between;
+		gap: 8px;
 	}
 	p {
 		font-weight: bold;
