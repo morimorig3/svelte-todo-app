@@ -21,10 +21,20 @@
 	function handleRemove(deleteId: string) {
 		todos = todos.filter(({ id }) => id !== deleteId);
 	}
+	function handleChange(changeId: string) {
+		todos = todos.map((todo) =>
+			todo.id === changeId
+				? {
+						...todo,
+						isCompleted: !todo.isCompleted
+				  }
+				: todo
+		);
+	}
 </script>
 
 <div>
-	<TodoList {todos} {handleRemove} />
+	<TodoList {todos} {handleRemove} {handleChange} />
 </div>
 
 <style>

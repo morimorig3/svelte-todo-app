@@ -3,19 +3,17 @@
 	export let title: string;
 	export let isCompleted: boolean;
 	export let handleRemove: (deleteId: string) => void;
-	function onChange() {
-		isCompleted = !isCompleted;
-	}
+	export let handleChange: (changeId: string) => void;
 </script>
 
 <li>
 	<label for={id}>
 		<div>
-			<input type="checkbox" checked={isCompleted} {id} on:change={onChange} />
+			<input type="checkbox" checked={isCompleted} {id} on:change={() => handleChange(id)} />
 			<p>{title}</p>
 		</div>
 		{#if isCompleted}
-			<button on:click={() => handleRemove(id)}>delete</button>
+			<a on:click={() => handleRemove(id)}>delete</a>
 		{/if}
 	</label>
 </li>
@@ -39,6 +37,9 @@
 		gap: 8px;
 	}
 	p {
+		font-weight: bold;
+	}
+	a {
 		font-weight: bold;
 	}
 </style>
