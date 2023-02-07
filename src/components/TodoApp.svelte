@@ -1,26 +1,30 @@
-<script>
+<script lang="ts">
 	import TodoList from './TodoList.svelte';
-	const todos = [
+	let todos = [
 		{
-			id: 'XXXXXX',
+			id: crypto.randomUUID(),
 			title: 'タスク1',
 			isCompleted: false
 		},
 		{
-			id: 'YYYYYY',
+			id: crypto.randomUUID(),
 			title: 'タスク2',
 			isCompleted: false
 		},
 		{
-			id: 'ZZZZZZ',
+			id: crypto.randomUUID(),
 			title: 'タスク3',
 			isCompleted: false
 		}
 	];
+
+	function handleRemove(deleteId: string) {
+		todos = todos.filter(({ id }) => id !== deleteId);
+	}
 </script>
 
 <div>
-	<TodoList {todos} />
+	<TodoList {todos} {handleRemove} />
 </div>
 
 <style>
