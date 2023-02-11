@@ -1,19 +1,20 @@
 <script lang="ts">
+	import { todos } from '../store';
 	export let id: string;
 	export let title: string;
 	export let isCompleted: boolean;
-	export let handleRemove: (deleteId: string) => void;
-	export let handleChange: (changeId: string) => void;
+
+	const { onCheckTodo, removeTodo } = todos;
 </script>
 
 <li>
 	<label for={id}>
 		<div>
-			<input type="checkbox" checked={isCompleted} {id} on:change={() => handleChange(id)} />
+			<input type="checkbox" checked={isCompleted} {id} on:change={() => onCheckTodo(id)} />
 			<p>{title}</p>
 		</div>
 		{#if isCompleted}
-			<a on:click={() => handleRemove(id)}>delete</a>
+			<a on:click={() => removeTodo(id)}>delete</a>
 		{/if}
 	</label>
 </li>

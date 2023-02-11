@@ -3,14 +3,12 @@
 	import type { TodoType } from '../types/index';
 
 	export let todos: TodoType[];
-	export let handleRemove: (deleteId: string) => void;
-	export let handleChange: (changeId: string) => void;
 </script>
 
 <div>
 	<ul>
 		{#each todos as { id, isCompleted, title } (id)}
-			<Todo {id} {isCompleted} {title} {handleRemove} {handleChange} />
+			<Todo {id} {isCompleted} {title} />
 		{/each}
 	</ul>
 </div>
