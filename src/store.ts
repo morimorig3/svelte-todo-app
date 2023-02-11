@@ -2,6 +2,7 @@ import { writable } from 'svelte/store';
 import type { TodoType } from './types';
 
 export const inputValue = writable<string>();
+export const errors = writable<string>();
 const initialTodos: TodoType[] = [];
 
 function createTodos() {

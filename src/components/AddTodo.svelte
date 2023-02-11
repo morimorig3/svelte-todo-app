@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { inputValue, todos } from '../store';
+	import { inputValue, errors, todos } from '../store';
 
 	const { addTodo } = todos;
 
@@ -11,19 +11,25 @@
 	}
 
 	function onClick() {
-		if (!$inputValue) return;
+		if (!$inputValue) return errors.set('Please enter a task title...');
 		addTodo($inputValue);
 		inputValue.set('');
 	}
 </script>
 
 <div>
-	<input
-		placeholder="Enter a task"
-		type="text"
-		bind:value={$inputValue}
-		on:keydown={onKeydownEnter}
-	/><button on:click={onClick}>Add</button>
+	<div class="inner">
+		<input
+			placeholder="Enter a task"
+			type="text"
+			bind:value={$inputValue}
+			on:keydown={onKeydownEnter}
+			on:input={() => errors.set('')}
+		/><button on:click={onClick}>Add</button>
+	</div>
+	{#if $errors}
+		<p class="error">{$errors}</p>
+	{/if}
 </div>
 
 <style>
@@ -31,7 +37,7 @@
 	button {
 		color-scheme: light;
 	}
-	div {
+	.inner {
 		display: flex;
 		gap: 4px;
 	}
@@ -60,5 +66,9 @@
 	button:hover {
 		background-color: #16a34a;
 		color: #f5f5f5;
+	}
+	.error {
+		color: red;
+		line-height: 2;
 	}
 </style>
