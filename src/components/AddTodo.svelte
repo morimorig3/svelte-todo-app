@@ -4,7 +4,6 @@
 </script>
 
 <div>
-	<p>{value}</p>
 	<input type="text" bind:value /><button on:click={() => addTodo(value)}>Add</button>
 </div>
 
