@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { slide } from 'svelte/transition';
+
 	import { todos } from '../store';
 	export let id: string;
 	export let title: string;
@@ -7,7 +9,7 @@
 	const { onCheckTodo, removeTodo } = todos;
 </script>
 
-<li>
+<li transition:slide>
 	<label for={id}>
 		<div>
 			<input type="checkbox" checked={isCompleted} {id} on:change={() => onCheckTodo(id)} />

@@ -20,32 +20,6 @@ const initialTodos: TodoType[] = [
 	}
 ];
 
-/**
- * タスクを削除する
- */
-// function handleRemove(deleteId: string) {
-// 	todos = todos.filter(({ id }) => id !== deleteId);
-// }
-/**
- * チェックボックスのトグルハンドラ
- */
-// function handleChange(changeId: string) {
-// 	todos = todos.map((todo) =>
-// 		todo.id === changeId
-// 			? {
-// 					...todo,
-// 					isCompleted: !todo.isCompleted
-// 			  }
-// 			: todo
-// 	);
-// }
-/**
- * タスクを追加する
- */
-// function addTodo() {
-// 	if (!$inputValue) return;
-// 	inputValue.set('');
-// }
 function createTodos() {
 	const { subscribe, update } = writable<TodoType[]>(initialTodos);
 
