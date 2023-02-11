@@ -2,7 +2,6 @@
 	import { todos } from '../store';
 	import TodoList from './TodoList.svelte';
 	import AddTodo from './AddTodo.svelte';
-	import { fade } from 'svelte/transition';
 </script>
 
 <div>

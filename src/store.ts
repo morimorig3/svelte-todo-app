@@ -1,12 +1,24 @@
 import { writable } from 'svelte/store';
+import { INITIAL_TODO } from './param/const';
 import type { TodoType } from './types';
 
+/**
+ * 入力中の値を管理する
+ */
 export const inputValue = writable<string>();
+
+/**
+ * エラー表示
+ */
 export const errors = writable<string>();
-const initialTodos: TodoType[] = [];
+
+/**
+ * Todoリストの管理
+ */
+export const todos = createTodos();
 
 function createTodos() {
-	const { subscribe, update } = writable<TodoType[]>(initialTodos);
+	const { subscribe, update } = writable<TodoType[]>(INITIAL_TODO);
 
 	return {
 		subscribe,
@@ -33,5 +45,3 @@ function createTodos() {
 			)
 	};
 }
-
-export const todos = createTodos();

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { ADD_TODO_TEXT_BOX_PLACEHOLDER, VALIDATION_MESSAGE_BLANK_TEXT } from '../param/const';
 	import { inputValue, errors, todos } from '../store';
 
 	const { addTodo } = todos;
@@ -11,7 +12,7 @@
 	}
 
 	function onClick() {
-		if (!$inputValue) return errors.set('Please enter a task title...');
+		if (!$inputValue) return errors.set(VALIDATION_MESSAGE_BLANK_TEXT);
 		addTodo($inputValue);
 		inputValue.set('');
 	}
@@ -20,7 +21,7 @@
 <div>
 	<div class="inner">
 		<input
-			placeholder="Enter a task"
+			placeholder={ADD_TODO_TEXT_BOX_PLACEHOLDER}
 			type="text"
 			bind:value={$inputValue}
 			on:keydown={onKeydownEnter}
