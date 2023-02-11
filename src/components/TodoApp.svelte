@@ -45,6 +45,7 @@
 	 * タスクを追加する
 	 */
 	function addTodo() {
+		if (!$inputValue) return;
 		const todo: TodoType = {
 			id: crypto.randomUUID(),
 			isCompleted: false,
