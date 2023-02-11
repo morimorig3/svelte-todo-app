@@ -14,9 +14,3 @@
 		{/each}
 	</ul>
 </div>
-
-<style>
-	ul {
-		padding: 16px;
-	}
-</style>
