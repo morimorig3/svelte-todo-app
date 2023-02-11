@@ -38,10 +38,12 @@
 	div {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		gap: 8px;
 	}
 	p {
 		font-weight: bold;
+		word-break: break-all;
 	}
 	button {
 		width: 25px;

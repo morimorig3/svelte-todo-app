@@ -18,9 +18,12 @@
 </script>
 
 <div>
-	<input type="text" bind:value={$inputValue} on:keydown={onKeydownEnter} /><button
-		on:click={onClick}>Add</button
-	>
+	<input
+		placeholder="Enter a task"
+		type="text"
+		bind:value={$inputValue}
+		on:keydown={onKeydownEnter}
+	/><button on:click={onClick}>Add</button>
 </div>
 
 <style>
