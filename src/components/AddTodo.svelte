@@ -1,10 +1,21 @@
 <script lang="ts">
-	export let addTodo: (title: string) => void;
-	let value: string;
+	import { inputValue } from '../store';
+	export let addTodo: () => void;
+
+	function onKeydownEnter({ metaKey, ctrlKey, key }: KeyboardEvent) {
+		const isCommand = !ctrlKey && metaKey;
+		const isControl = ctrlKey && !metaKey;
+		const isEnter = key === 'Enter';
+		if (isEnter && (isCommand || isControl)) {
+			addTodo();
+		}
+	}
 </script>
 
 <div>
-	<input type="text" bind:value /><button on:click={() => addTodo(value)}>Add</button>
+	<input type="text" bind:value={$inputValue} on:keydown={onKeydownEnter} /><button
+		on:click={() => addTodo()}>Add</button
+	>
 </div>
 
 <style>

@@ -2,7 +2,8 @@
 	import TodoList from './TodoList.svelte';
 	import AddTodo from './AddTodo.svelte';
 	import type { TodoType } from '../types';
-	const text = 'aiueo';
+	import { inputValue } from '../store';
+
 	let todos: TodoType[] = [
 		{
 			id: crypto.randomUUID(),
@@ -43,13 +44,14 @@
 	/**
 	 * タスクを追加する
 	 */
-	function addTodo(title: string) {
+	function addTodo() {
 		const todo: TodoType = {
 			id: crypto.randomUUID(),
 			isCompleted: false,
-			title
+			title: $inputValue
 		};
 		todos = [...todos, todo];
+		inputValue.set('');
 	}
 </script>
 
