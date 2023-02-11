@@ -25,6 +25,7 @@
 	label {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		margin-bottom: 16px;
 		padding: 16px;
 		border: 1px solid rgba(149, 157, 165, 0.2);
@@ -46,6 +47,7 @@
 		word-break: break-all;
 	}
 	button {
+		flex-shrink: 0;
 		width: 25px;
 		height: 25px;
 		display: flex;
