@@ -2,23 +2,7 @@ import { writable } from 'svelte/store';
 import type { TodoType } from './types';
 
 export const inputValue = writable<string>();
-const initialTodos: TodoType[] = [
-	{
-		id: crypto.randomUUID(),
-		title: 'タスク1',
-		isCompleted: false
-	},
-	{
-		id: crypto.randomUUID(),
-		title: 'タスク2',
-		isCompleted: false
-	},
-	{
-		id: crypto.randomUUID(),
-		title: 'タスク3',
-		isCompleted: false
-	}
-];
+const initialTodos: TodoType[] = [];
 
 function createTodos() {
 	const { subscribe, update } = writable<TodoType[]>(initialTodos);

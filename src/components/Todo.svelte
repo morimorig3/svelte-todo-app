@@ -16,7 +16,7 @@
 			<p>{title}</p>
 		</div>
 		{#if isCompleted}
-			<a on:click={() => removeTodo(id)}>delete</a>
+			<button on:click={() => removeTodo(id)}>×</button>
 		{/if}
 	</label>
 </li>
@@ -43,7 +43,17 @@
 	p {
 		font-weight: bold;
 	}
-	a {
+	button {
+		width: 25px;
+		height: 25px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: red;
+		line-height: 1;
+		border: none;
 		font-weight: bold;
+		color: #ffffff;
+		border-radius: 10px;
 	}
 </style>
