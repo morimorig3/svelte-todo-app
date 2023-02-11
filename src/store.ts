@@ -1,6 +1,11 @@
+import { browser } from '$app/environment';
 import { writable } from 'svelte/store';
-import { INITIAL_TODO } from './param/const';
+import { LOCAL_STORAGE_KEY } from './param/const';
 import type { TodoType } from './types';
+
+const initialTodos = browser
+	? (JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || `[]`) as TodoType[])
+	: [];
 
 /**
  * 入力中の値を管理する
@@ -18,7 +23,9 @@ export const errors = writable<string>();
 export const todos = createTodos();
 
 function createTodos() {
-	const { subscribe, update } = writable<TodoType[]>(INITIAL_TODO);
+	const { subscribe, update } = writable<TodoType[]>(initialTodos);
+
+	subscribe((todos) => browser && localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos)));
 
 	return {
 		subscribe,
