@@ -1,4 +1,11 @@
-<h1>Todo List by Svelte</h1>
+<script>
+	import GitHubLink from './GitHubLink.svelte';
+</script>
+
+<div>
+	<h1>Todo List by Svelte</h1>
+	<GitHubLink />
+</div>
 
 <style>
 	h1 {
