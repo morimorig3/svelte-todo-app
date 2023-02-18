@@ -7,4 +7,5 @@ export interface TodoType {
 	title: string;
 	isCompleted: boolean;
 	isEdit: boolean;
+	isOpenToolTip: boolean;
 }

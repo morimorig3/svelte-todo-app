@@ -8,8 +8,8 @@
 {#if todos.length}
 	<div>
 		<ul>
-			{#each todos as { id, title, isCompleted, isEdit } (id)}
-				<Todo {id} {isCompleted} {title} {isEdit} />
+			{#each todos as { id, title, isCompleted, isEdit, isOpenToolTip } (id)}
+				<Todo {id} {isCompleted} {title} {isEdit} {isOpenToolTip} />
 			{/each}
 		</ul>
 	</div>

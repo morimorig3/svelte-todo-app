@@ -69,6 +69,20 @@ function createTodos() {
 						  }
 				)
 			),
+		toggleIsOpenToolTip: (targetId: string) =>
+			update((todos) =>
+				todos.map((todo) =>
+					todo.id === targetId
+						? {
+								...todo,
+								isOpenToolTip: !todo.isOpenToolTip
+						  }
+						: {
+								...todo,
+								isOpenToolTip: false
+						  }
+				)
+			),
 		updateTitle: (targetId: string, title: string) =>
 			update((todos) =>
 				todos.map((todo) =>
