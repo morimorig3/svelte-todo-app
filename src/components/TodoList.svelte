@@ -5,10 +5,12 @@
 	export let todos: TodoType[];
 </script>
 
-<div>
-	<ul>
-		{#each todos as { id, isCompleted, title } (id)}
-			<Todo {id} {isCompleted} {title} />
-		{/each}
-	</ul>
-</div>
+{#if todos.length}
+	<div>
+		<ul>
+			{#each todos as { id, title, isCompleted, isEdit } (id)}
+				<Todo {id} {isCompleted} {title} {isEdit} />
+			{/each}
+		</ul>
+	</div>
+{/if}

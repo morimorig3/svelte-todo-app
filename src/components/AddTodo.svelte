@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { ADD_TODO_TEXT_BOX_PLACEHOLDER, VALIDATION_MESSAGE_BLANK_TEXT } from '../param/const';
-	import { inputValue, errors, todos } from '../store';
+	import { inputValue, appState, todos, errors } from '../store';
 
 	const { addTodo } = todos;
 
@@ -12,7 +12,11 @@
 	}
 
 	function onClick() {
-		if (!$inputValue) return errors.set(VALIDATION_MESSAGE_BLANK_TEXT);
+		if (!$inputValue)
+			return appState.update((appState) => ({
+				...appState,
+				errors: [VALIDATION_MESSAGE_BLANK_TEXT]
+			}));
 		addTodo($inputValue);
 		inputValue.set('');
 	}
@@ -25,11 +29,15 @@
 			type="text"
 			bind:value={$inputValue}
 			on:keydown={onKeydownEnter}
-			on:input={() => errors.set('')}
+			on:input={() =>
+				appState.update((appState) => ({
+					...appState,
+					errors: []
+				}))}
 		/><button on:click={onClick}>Add</button>
 	</div>
-	{#if $errors}
-		<p class="error">{$errors}</p>
+	{#if $appState.errors}
+		<p class="error">{$appState.errors}</p>
 	{/if}
 </div>
 

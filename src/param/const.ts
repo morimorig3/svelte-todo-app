@@ -1,4 +1,4 @@
-import type { TodoType } from '../types';
+import type { AppStateType, TodoType } from '../types';
 
 export const LOCAL_STORAGE_KEY = 'svelte-todo-app';
 
@@ -13,4 +13,8 @@ export const INITIAL_TODO_PARAM: TodoType = {
 	title: '',
 	isCompleted: false,
 	isEdit: false
+};
+
+export const INITIAL_APP_STATE: AppStateType = {
+	errors: []
 };
